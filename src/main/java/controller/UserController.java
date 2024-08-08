@@ -13,11 +13,11 @@ public class UserController {
 
         addUser(factory,session);
 
-        //findUser(factory,session,2);
+//        findUser(factory,session,2);
 
-        // updateUser(session,3);
+//         updateUser(session,3);
 
-        //deleteUser(session,4);
+        deleteUser(session,4);
 
     }
 
@@ -65,4 +65,47 @@ public class UserController {
         factory.close();
         session.close();
     }
+    public static void findUser(SessionFactory factory,Session session,int userId){
+//       Todo comment out addUser method and uncomment findUser method
+
+        Transaction tx = session.beginTransaction();
+
+        User u = session.get(User.class, userId);
+        System.out.println("FullName: " + u.getFullName());
+        System.out.println("Email: " + u.getEmail());
+        System.out.println("password: " + u.getPassword());
+
+        //Close resources
+        tx.commit();
+        factory.close();
+        session.close();
+    }
+    public static void updateUser(Session session, int userId) {
+        // Todo comment out findUser method and uncomment updateUser method
+
+        Transaction tx = session.beginTransaction();
+        User u = new User();
+        u.setId(userId);
+        u.setEmail("mhaseeb@perscholas");
+        u.setFullName("M Haseeb");
+        u.setPassword("123456");
+        session.merge(u);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public static void deleteUser(Session session,int userId){
+        // Todo comment out updateUser method and uncomment deleteUser method
+
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Transaction tx = session.beginTransaction();
+        User u = new User();
+        u.setId(userId);
+        session.remove(u);
+        tx.commit();
+        session.close();
+        factory.close();
+    }
+
+
 }
