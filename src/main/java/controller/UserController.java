@@ -15,9 +15,9 @@ public class UserController {
 
 //        findUser(factory,session,2);
 
-         updateUser(session,3);
+//         updateUser(session,3);
 
-      //  deleteUser(session,4);
+        deleteUser(session,4);
 
     }
 
@@ -66,7 +66,7 @@ public class UserController {
         session.close();
     }
     public static void findUser(SessionFactory factory,Session session,int userId){
-//       Todo comment out addUser method and uncomment findUser method
+
 
         Transaction tx = session.beginTransaction();
 
@@ -81,7 +81,6 @@ public class UserController {
         session.close();
     }
     public static void updateUser(Session session, int userId) {
-        // Todo comment out findUser method and uncomment updateUser method
 
         Transaction tx = session.beginTransaction();
         User u = new User();
@@ -95,7 +94,6 @@ public class UserController {
     }
 
     public static void deleteUser(Session session,int userId){
-        // Todo comment out updateUser method and uncomment deleteUser method
 
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Transaction tx = session.beginTransaction();
