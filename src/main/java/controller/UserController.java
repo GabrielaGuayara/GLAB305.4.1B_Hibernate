@@ -13,9 +13,9 @@ public class UserController {
 
 //        addUser(factory,session);
 
-        findUser(factory,session,2);
+//        findUser(factory,session,2);
 
-//         updateUser(session,3);
+         updateUser(session,3);
 
       //  deleteUser(session,4);
 
