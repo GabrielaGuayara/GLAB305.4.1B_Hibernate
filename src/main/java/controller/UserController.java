@@ -11,13 +11,13 @@ public class UserController {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
-        addUser(factory,session);
+//        addUser(factory,session);
 
-//        findUser(factory,session,2);
+        findUser(factory,session,2);
 
 //         updateUser(session,3);
 
-        deleteUser(session,4);
+      //  deleteUser(session,4);
 
     }
 
